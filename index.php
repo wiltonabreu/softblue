@@ -12,6 +12,7 @@ and open the template in the editor.
     <body>
         <?php
             echo"teste11111";
+            echo "teste2222";
         ?>
     </body>
 </html>
