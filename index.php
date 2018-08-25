@@ -11,8 +11,9 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-            echo"teste11111";
-            echo "teste2222";
+            echo"teste11111<br>";
+            echo "teste2222<br>";
+            echo"teste333<br>"
         ?>
     </body>
 </html>
