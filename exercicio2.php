@@ -79,6 +79,7 @@ informações.
        }
        
        public function mostraInformacoes() {
+         echo "Usuário:<br>";
           echo "Nome do usuário: " ."<b>". $this->getNome() ."</b><br>";
           echo "Endereço: " . "<b>". $this->getEdereco() ."</b><br>";
           echo "Telefone: " . "<b>". $this->getTelefone() . "</b><br>";
@@ -107,6 +108,7 @@ informações.
       }
       
       public function mostraInformacoes(){
+         echo "Funcionário:<br>";
          echo "Nome do Funcionário: " ."<b>". $this->getNome() ."</b><br>";
          echo "Endereço: " . "<b>". $this->getEdereco() ."</b><br>";
          echo "Telefone: " . "<b>". $this->getTelefone() . "</b><br>";
@@ -123,11 +125,82 @@ informações.
 
  /* Classe CD: deve conter o nome do artista, o nome do álbum e estilo. Deve conter um
 método que exiba estas informações.
-
- * Classe DVD: deve conter o título do DVD e o estilo. Deve conter um método que exiba
+*/
+   abstract class Produto{
+      public $titulo;
+      public $estilo;
+      
+      public function __construct($titulo, $estilo){
+         $this->titulo = $titulo;
+         $this->estilo = $estilo;
+      }
+      
+      abstract function mostraInfo();
+   }
+   
+   class CD extends Produto{
+      public $nomeArtista;
+      
+      public function __construct($titulo, $estilo, $nomeArtista){
+         parent::__construct($titulo, $estilo);
+         
+         $this->nomeArtista = $nomeArtista;
+         
+      }
+      
+      public function mostraInfo(){
+         echo "CD:<br>";
+         echo "Artita: " . "<b>". $this->nomeArtista . "</b><br>";
+         echo "Titulo: " . "<b>". $this->titulo . "</b><br>";
+         echo "Estilo: " . "<b>". $this->estilo . "</b><br><br>";
+      }
+   }
+   
+   $cd = new CD("TesteCD", "Rock", "Bob");
+   $cd->mostraInfo();
+   
+   
+   class DVD extends Produto{
+      
+      public function __construct($titulo, $estilo){
+         parent::__construct($titulo, $estilo);
+      }
+      
+      public function mostraInfo(){
+         echo "DVD:<br>";
+         echo "Titulo: " . "<b>". $this->titulo . "</b><br>";
+         echo "Estilo: " . "<b>". $this->estilo . "</b><br><br>";
+      }
+   }
+   
+   
+   $dvd = new DVD("TesteDVD", "POP");
+   $dvd->mostraInfo();
+ /* Classe DVD: deve conter o título do DVD e o estilo. Deve conter um método que exiba
 estas informações.
+*/
+  class Bluray extends Produto{
+   public $resolucao;
+   
+   public function __construct($titulo,$estilo,$resolucao){
+      parent::__construct($titulo,$estilo);
+      
+      $this->resolucao = $resolucao;
+   }
+   
+   
+   public function mostraInfo(){
+      echo "Bluray:<br>";
+      echo "Resolução: " . "<b>". $this->resolucao . "</b><br>";
+      echo "Titulo: " . "<b>". $this->titulo . "</b><br>";
+      echo "Estilo: " . "<b>". $this->estilo . "</b><br><br>";
+   }
+  }
+  
+  $bluray = new Bluray("TesteBluray","Sertanejo", "HD");
+  $bluray->mostraInfo();
 
- * Classe Bluray: deve conter o título do Bluray, estilo e resolução (se é HD ou FullHD).
+ /* Classe Bluray: deve conter o título do Bluray, estilo e resolução (se é HD ou FullHD).
 Deve conter um método que exiba estas informações.
 
  * Classe Locacao: deve conter o objeto do Usuario e do produto que foi locado. Deve
@@ -144,6 +217,8 @@ de código e manter o seu código organizado. Utilize as recomendações apresen
 em aula, como por exemplo, modificadores de acessos private, protecte e public
 quando necessários, bem como o uso de métodos getters e setters.
  */
+ 
+ 
     
         
     
