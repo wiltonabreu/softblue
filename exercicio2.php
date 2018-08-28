@@ -63,16 +63,63 @@ informações.
    class Usuario extends Pessoa{
        public $numerosDeFilmesAlocados;
        
-       public function __construct($nome, $endereco, $telefone) {
+       public function __construct($numerosDeFilmesAlocados,$nome, $endereco, $telefone) {
            parent::__construct($nome, $endereco, $telefone);
+           
+           $this->setNumerosDeFilmesAlocados($numerosDeFilmesAlocados);
+          
+       }
+       
+       private function setNumerosDeFilmesAlocados($numerosDeFilmesAlocados){
+           $this->numerosDeFilmesAlocados = $numerosDeFilmesAlocados;
+       }
+       
+       public function getNumerosDeFilmesAlocados(){
+           return $this->numerosDeFilmesAlocados;
        }
        
        public function mostraInformacoes() {
-           
+          echo "Nome do usuário: " ."<b>". $this->getNome() ."</b><br>";
+          echo "Endereço: " . "<b>". $this->getEdereco() ."</b><br>";
+          echo "Telefone: " . "<b>". $this->getTelefone() . "</b><br>";
+          echo "Numero de filmes alocados: " . "<b>".$this->getNumerosDeFilmesAlocados() ."</b><br><br>";
+
            
        }      
        
    }
+   
+   class Funcionario extends Pessoa{
+      public $salario;
+      
+      public function __construct($salario, $nome, $endereco,$telefone){
+         parent::__construct($nome,$endereco,$telefone);
+         
+         $this->setSalario($salario);
+      }
+      
+      private function setSalario($salario){
+         $this->salario = $salario;
+      }
+      
+      public function getSalario(){
+         return $this->salario;
+      }
+      
+      public function mostraInformacoes(){
+         echo "Nome do Funcionário: " ."<b>". $this->getNome() ."</b><br>";
+         echo "Endereço: " . "<b>". $this->getEdereco() ."</b><br>";
+         echo "Telefone: " . "<b>". $this->getTelefone() . "</b><br>";
+         echo "Salário: " . "<b>" . $this->getSalario() . "</b><br><br>";
+
+      }
+   }
+   
+   $usuario = new Usuario(5,"Wilton Abreu","Rua Pedro Leopoldo","(31) 32117777");   
+   $usuario->mostraInformacoes();
+   
+   $funcionario = new Funcionario(2000,"Carlos", "Ruas das pedras", "(31) 32223443");
+   $funcionario->mostraInformacoes();
 
  /* Classe CD: deve conter o nome do artista, o nome do álbum e estilo. Deve conter um
 método que exiba estas informações.
