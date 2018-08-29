@@ -353,7 +353,7 @@ $usuario = $locadora->getUsuarioPeloNome("Fernando");
 $produto = $locadora->getProdutoPeloCodigo(2);
 $locadora->criarLocacao($funcionario, $usuario, $produto);
 
-$funcionario = $locadora->getFuncionarioPeloNome("Andrá");
+$funcionario = $locadora->getFuncionarioPeloNome("André");
 $usuario = $locadora->getUsuarioPeloNome("Samuel");
 $produto = $locadora->getProdutoPeloCodigo(3);
 $locadora->criarLocacao($funcionario, $usuario, $produto);

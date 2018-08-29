@@ -1,6 +1,6 @@
 <?php
     class DVD extends Produto{
-        public $titulo;
+        private $titulo;
         
         public function __construct($titulo,$estilo, $codigo) {
             parent::__construct($estilo, $codigo);
@@ -13,15 +13,15 @@
 
         
         function mostrainfoProduto() {
-            echo "Informações do DVD:<br>";
-            echo "Titulo: " . $this->titulo . "<br>";
-            echo "Estilo: " . $this->estilo . "<br>";
-            echo "Código: " . $this->codigo . "<br><br>";
+            echo "<b> Informações do DVD :</b>";
+            echo $this->titulo.", ";
+            echo $this->estilo.", ";
+            echo $this->codigo . " <br><br>";
         }
 
     }
     
-    $dvd = new DVD("Mostra DVD", "POP", "1#02");
-    $dvd->mostrainfoProduto();
+   // $dvd = new DVD("Mostra DVD", "POP", "1#02");
+    //$dvd->mostrainfoProduto();
 ?>
 

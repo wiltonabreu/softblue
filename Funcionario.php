@@ -1,18 +1,26 @@
 <?php
 
 class Funcionario extends Pessoas{
-        public $salario;
+        
+    private $salario;
+    
+    public function __construct($nome,$endereco, $telefone,$salario) {
+        parent::__construct($nome, $telefone, $endereco);
+        $this->salario = $salario;
+    }
+        
         public function mostrainfoPessoa() {
-            echo "Funcionário:<br>";
-            echo "Nome: " . $this->nome . "<br>";
-            echo "Endereço: " . $this->endereco . "<br>";
-            echo "Telefone: " . $this->telefone . "<br><br>";
+            echo "Informações de Funcionário: ";
+            echo $this->nome .", ";
+            echo $this->endereco .", ";
+            echo $this->telefone .", ";
+            echo $this->salario . " <br><br>";
         }
      
     }
     
-    $funcionario = new Funcionario("Jonas", "Rua 3333", "32116666");
-    $funcionario->mostrainfoPessoa();
+    //$funcionario = new Funcionario("Jonas", "Rua 3333", "32116666",1000);
+    //$funcionario->mostrainfoPessoa();
     
 ?>
 

@@ -1,7 +1,7 @@
 <?php
     class CD extends Produto{
-        public $nome;
-        public $album;
+        private $nome;
+        private $album;
 
         
         public function __construct($nome, $album,$estilo, $codigo) {
@@ -15,16 +15,16 @@
 
         public function mostrainfoProduto() {
         
-            echo "Informações do CD:<br>";
-            echo "Nome: " . $this->nome . "<br>";
-            echo "Album: " . $this->album . "<br>";
-            echo "Estilo: " . $this->estilo . "<br>";
-            echo "Código: " . $this->codigo . "<br><br>";
+            echo "<b> Informações do CD :</b>";
+            echo $this->nome .", ";
+            echo $this->album.", ";
+            echo $this->estilo.", ";
+            echo $this->codigo . " <br><br>";
         }
 
     }
     
-    $cd = new CD("Mostra CD", "Hits 2016", "Rock", "1#01");
-    $cd->mostrainfoProduto();
+    //$cd = new CD("Mostra CD", "Hits 2016", "Rock", "1#01");
+    //$cd->mostrainfoProduto();
 
 ?>

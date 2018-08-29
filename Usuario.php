@@ -4,18 +4,30 @@
     
     class Usuario extends Pessoas{       
         
-        public $numFilmes = 0;
+        private $numFilmes = 0;
+        
+        function getNumFilmes() {
+            return $this->numFilmes;
+        }
 
+        function setNumFilmes($numFilmes) {
+            $this->numFilmes = $numFilmes;
+        }
+        
+        
+
+        
         public function mostrainfoPessoa() {
-            echo "Usuário:<br>";
-            echo "Nome: " . $this->nome . "<br>";
-            echo "Endereço: " . $this->endereco . "<br>";
-            echo "Telefone: " . $this->telefone . "<br><br>";
+            echo "Informações de pessoa: ";
+            echo  $this->nome .", ";
+            echo  $this->endereco .", ";
+            echo  $this->telefone .", ";
+            echo  $this->numFilmes . " <br><br>";
         }
 
     }
     
-    $usuario = new Usuario("Wilton", "Rua 2222", "32117777");
-    $usuario->mostrainfoPessoa();
+    //$usuario = new Usuario("Wilton", "Rua 2222", "32117777");
+    //$usuario->mostrainfoPessoa();
 ?>
 
