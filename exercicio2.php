@@ -5,222 +5,38 @@
     <BODY>
         
 <?php
-
-/* 
- Exercício 2
-Assumindo o exemplo fictício de uma locadora, modele e construa os códigos
-necessários para as seguintes classes de um sistema:
-
- * Classe Usuario: deve conter o nome, telefone e endereço do usuário da locadora, e
-também o número de filmes que ele já locou. Deve conter um método que exiba estas
-informações.
-
- * Classe Funcionario: deve conter o nome, telefone e endereço do funcionário da
-locadora, e o valor do seu salário. Deve conter um método que exiba estas
-informações.
- */
-  
-   echo "Exercício 2";
-   echo '<br><br>';
-   
-   class Pessoa{
-       
-       public $nome;
-       public $endereco;
-       public $telefone;
-       
-       public function __construct($nome, $endereco, $telefone) {          
-           $this->setNome($nome);
-           $this->setEndereco($endereco);
-           $this->setTelefone($telefone);           
-       }
-       
-       private function setNome($nome){
-           $this->nome = $nome;
-       }
-       
-       private function setEndereco($endereco){
-           $this->endereco = $endereco;
-       }
-       
-       private function setTelefone($telefone){
-           $this->telefone = $telefone;
-       }
-       
-       public function getNome(){
-           return $this->nome;
-       }
-       
-       public function getTelefone() {
-           return $this->telefone;
-       }
-       
-       public function getEdereco() {
-           return $this->endereco;
-       }
-   }
-   
-   class Usuario extends Pessoa{
-       public $numerosDeFilmesAlocados;
-       
-       public function __construct($numerosDeFilmesAlocados,$nome, $endereco, $telefone) {
-           parent::__construct($nome, $endereco, $telefone);
-           
-           $this->setNumerosDeFilmesAlocados($numerosDeFilmesAlocados);
-          
-       }
-       
-       private function setNumerosDeFilmesAlocados($numerosDeFilmesAlocados){
-           $this->numerosDeFilmesAlocados = $numerosDeFilmesAlocados;
-       }
-       
-       public function getNumerosDeFilmesAlocados(){
-           return $this->numerosDeFilmesAlocados;
-       }
-       
-       public function mostraInformacoes() {
-         echo "Usuário:<br>";
-          echo "Nome do usuário: " ."<b>". $this->getNome() ."</b><br>";
-          echo "Endereço: " . "<b>". $this->getEdereco() ."</b><br>";
-          echo "Telefone: " . "<b>". $this->getTelefone() . "</b><br>";
-          echo "Numero de filmes alocados: " . "<b>".$this->getNumerosDeFilmesAlocados() ."</b><br><br>";
-
-           
-       }      
-       
-   }
-   
-   class Funcionario extends Pessoa{
-      public $salario;
-      
-      public function __construct($salario, $nome, $endereco,$telefone){
-         parent::__construct($nome,$endereco,$telefone);
-         
-         $this->setSalario($salario);
-      }
-      
-      private function setSalario($salario){
-         $this->salario = $salario;
-      }
-      
-      public function getSalario(){
-         return $this->salario;
-      }
-      
-      public function mostraInformacoes(){
-         echo "Funcionário:<br>";
-         echo "Nome do Funcionário: " ."<b>". $this->getNome() ."</b><br>";
-         echo "Endereço: " . "<b>". $this->getEdereco() ."</b><br>";
-         echo "Telefone: " . "<b>". $this->getTelefone() . "</b><br>";
-         echo "Salário: " . "<b>" . $this->getSalario() . "</b><br><br>";
-
-      }
-   }
-   
-   $usuario = new Usuario(5,"Wilton Abreu","Rua Pedro Leopoldo","(31) 32117777");   
-   $usuario->mostraInformacoes();
-   
-   $funcionario = new Funcionario(2000,"Carlos", "Ruas das pedras", "(31) 32223443");
-   $funcionario->mostraInformacoes();
-
- /* Classe CD: deve conter o nome do artista, o nome do álbum e estilo. Deve conter um
-método que exiba estas informações.
-*/
-   abstract class Produto{
-      public $titulo;
-      public $estilo;
-      
-      public function __construct($titulo, $estilo){
-         $this->titulo = $titulo;
-         $this->estilo = $estilo;
-      }
-      
-      abstract function mostraInfo();
-   }
-   
-   class CD extends Produto{
-      public $nomeArtista;
-      
-      public function __construct($titulo, $estilo, $nomeArtista){
-         parent::__construct($titulo, $estilo);
-         
-         $this->nomeArtista = $nomeArtista;
-         
-      }
-      
-      public function mostraInfo(){
-         echo "CD:<br>";
-         echo "Artita: " . "<b>". $this->nomeArtista . "</b><br>";
-         echo "Titulo: " . "<b>". $this->titulo . "</b><br>";
-         echo "Estilo: " . "<b>". $this->estilo . "</b><br><br>";
-      }
-   }
-   
-   $cd = new CD("TesteCD", "Rock", "Bob");
-   $cd->mostraInfo();
-   
-   
-   class DVD extends Produto{
-      
-      public function __construct($titulo, $estilo){
-         parent::__construct($titulo, $estilo);
-      }
-      
-      public function mostraInfo(){
-         echo "DVD:<br>";
-         echo "Titulo: " . "<b>". $this->titulo . "</b><br>";
-         echo "Estilo: " . "<b>". $this->estilo . "</b><br><br>";
-      }
-   }
-   
-   
-   $dvd = new DVD("TesteDVD", "POP");
-   $dvd->mostraInfo();
- /* Classe DVD: deve conter o título do DVD e o estilo. Deve conter um método que exiba
-estas informações.
-*/
-  class Bluray extends Produto{
-   public $resolucao;
-   
-   public function __construct($titulo,$estilo,$resolucao){
-      parent::__construct($titulo,$estilo);
-      
-      $this->resolucao = $resolucao;
-   }
-   
-   
-   public function mostraInfo(){
-      echo "Bluray:<br>";
-      echo "Resolução: " . "<b>". $this->resolucao . "</b><br>";
-      echo "Titulo: " . "<b>". $this->titulo . "</b><br>";
-      echo "Estilo: " . "<b>". $this->estilo . "</b><br><br>";
-   }
-  }
-  
-  $bluray = new Bluray("TesteBluray","Sertanejo", "HD");
-  $bluray->mostraInfo();
-
- /* Classe Bluray: deve conter o título do Bluray, estilo e resolução (se é HD ou FullHD).
-Deve conter um método que exiba estas informações.
-
- * Classe Locacao: deve conter o objeto do Usuario e do produto que foi locado. Deve
-conter um método que exiba estas informações.
-
- * Classe Locadora: todos os objetos do sistema devem ser armazenados dentro de um
-único objeto Locadora, que forneça os métodos apropriados para criação de todos os
-objetos citados, e também métodos de exibição dos mesmos. Por exemplo: método
-criarUsuario, criarFuncionario, criarDVD, listaUsuarios, listaFuncionarios, listaProdutos
-etc.
-
- * Modele e crie quantas classes extras achar necessário, de modo a evitar redundância
-de código e manter o seu código organizado. Utilize as recomendações apresentadas
-em aula, como por exemplo, modificadores de acessos private, protecte e public
-quando necessários, bem como o uso de métodos getters e setters.
- */
- 
- 
+    require_once 'Usuario.php';
+    require_once 'Funcionario.php';
+    require_once 'CD.php';
+    require_once 'DVD.php';
+    require_once 'Bluray.php';
     
+    abstract class Pessoas{
+        public $nome;
+        public $endereco;
+        public $telefone;
         
+        public function __construct($nome, $endereco, $telefone) {
+            $this->nome = $nome;
+            $this->endereco = $endereco;
+            $this->telefone = $telefone;
+        }
+        
+        abstract function mostrainfoPessoa();        
+       
+    }  
+    
+    abstract class Produto{
+        public $estilo;
+        public $codigo;
+        
+        public function __construct($estilo, $codigo) {
+            $this->estilo = $estilo;
+            $this->codigo = $codigo;
+        }
+        
+        abstract function mostrainfoProduto();
+    }
     
 ?>
     </BODY>
